@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E-Murika</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(
+        160deg,
+        #1c1c1c 0%,
+        #000000 70%
+      );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', system-ui, -apple-system;
+      overflow: hidden;
+    }
+
+    .splash {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    /* Logo */
+    .logo {
+      width: 450px;
+      transform-origin: top center;
+      animation:
+        swing 3.8s ease-in-out infinite,
+        float 4.5s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    /* IMIGONGO ZIGZAG LOADER */
+    .zigzag-wrapper {
+      margin-top: 22px;
+      width: 260px;
+      height: 14px;
+      overflow: hidden;
+    }
+
+    .zigzag {
+      width: 520px;
+      height: 14px;
+      background: repeating-linear-gradient(
+        135deg,
+        #f9f9f7 0 8px,
+        transparent 8px 16px
+      );
+      animation: moveZigzag 1.5s linear infinite;
+      opacity: 0.9;
+    }
+
+    .brand {
+      margin-top: 24px;
+      font-size: 32px;
+      font-weight: 700;
+      color: #f5f5f5;
+    }
+
+    /* Animations */
+    @keyframes swing {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(2deg); }
+      50% { transform: rotate(0deg); }
+      75% { transform: rotate(-2deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    @keyframes float {
+      0% { translate: 0 0; }
+      50% { translate: 0 6px; }
+      100% { translate: 0 0; }
+    }
+
+    @keyframes moveZigzag {
+      from { transform: translateX(0); }
+      to { transform: translateX(-260px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(0.96);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="splash" id="splash">
+    <img src="../static/murika_logo.png"
+         alt="E-Murika"
+         class="logo">
+
+    <!-- Imigongo loading bar -->
+    <div class="zigzag-wrapper">
+      <div class="zigzag"></div>
+    </div>
+
+    <div class="brand">E-Murika</div>
+  </div>
+
+  <script>
+    // 5-second loading like a real app
+    setTimeout(() => {
+      const splash = document.getElementById("splash");
+      splash.style.animation = "fadeOut 0.6s ease forwards";
+
+      setTimeout(() => {
+        window.location.href = "language.html";
+      }, 600);
+    }, 5000);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+/* Body & Background */
+.intro-body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb, #facc15);
+  overflow: hidden;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* 3D Scene */
+.scene {
+  width: 200px;
+  height: 200px;
+  perspective: 1000px;
+  margin-bottom: 20px;
+}
+
+/* Logo Rotation & Animation */
+.logo-3d {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: rotateLogo 2.5s ease-in-out forwards;
+}
+
+.logo-3d img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+/* Text Animations */
+.brand-text {
+  font-size: 2.2rem;
+  color: #ffffff;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 2.5s;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #facc15; /* yellow */
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 3s;
+}
+
+/* Keyframes */
+@keyframes rotateLogo {
+  0% {
+    transform: rotateY(-90deg) rotateX(10deg) scale(0.6);
+    opacity: 0;
+  }
+  50% {
+    transform: rotateY(20deg) rotateX(0deg) scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateY(0deg) rotateX(0deg) scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
