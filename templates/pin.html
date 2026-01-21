@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PIN Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',system-ui;
+}
+
+body{
+  min-height:100vh;
+  background:#000;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* PHONE */
+.phone{
+  width:100%;
+  max-width:390px;
+  height:100vh;
+  max-height:800px;
+  background:#000;
+  border-radius:28px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+
+/* TOP BRAND */
+.top{
+  height:30%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.logo{
+  width:190px;
+  height:180px;
+}
+
+/* MAIN CARD */
+.card{
+  flex:1;
+  background:#fff;
+  border-radius:28px 28px 0 0;
+  padding:26px 22px;
+  display:flex;
+  flex-direction:column;
+}
+
+/* USER ICON */
+.avatar{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:2px solid #000;
+  margin:0 auto 12px;
+  position:relative;
+}
+
+.avatar::after{
+  content:"";
+  position:absolute;
+  top:12px;
+  left:16px;
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  border:2px solid #000;
+}
+
+/* TEXT */
+h2{
+  text-align:center;
+  font-size:14px;
+  font-weight:500;
+  color:#000;
+}
+
+.subtitle{
+  text-align:center;
+  font-size:13px;
+  color:#666;
+  margin-top:6px;
+}
+
+/* PIN DOTS */
+.pin{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin:22px 0 18px;
+}
+
+.dot{
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:#d0d0d0;
+  transition:.25s;
+}
+
+.dot.active{
+  background:#000;
+  transform:scale(1.15);
+}
+
+.pin.error{
+  animation: shake .35s;
+}
+
+@keyframes shake{
+  0%{transform:translateX(0)}
+  25%{transform:translateX(-6px)}
+  50%{transform:translateX(6px)}
+  75%{transform:translateX(-6px)}
+  100%{transform:translateX(0)}
+}
+
+/* KEYPAD */
+.keypad{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:auto;
+  justify-items:center;
+}
+
+.key{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.18),
+    rgba(255,255,255,.05)
+  );
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.18);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  font-weight:500;
+  color:#000;
+  cursor:pointer;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.4),
+    0 8px 20px rgba(0,0,0,.6);
+  transition:.12s;
+}
+
+.key:active{
+  transform:scale(.92);
+}
+
+.key.empty{
+  background:transparent;
+  border:none;
+  box-shadow:none;
+  pointer-events:none;
+}
+
+/* FOOTER */
+.footer{
+  display:flex;
+  justify-content:space-between;
+  margin-top:18px;
+  font-size:12px;
+  color:#000;
+}
+
+.footer span{
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone">
+
+  <!-- TOP -->
+  <div class="top">
+    <img src="../static/murika_logo.png" class="logo" alt="E-Murika">
+  </div>
+
+  <!-- CARD -->
+  <div class="card">
+
+    <div class="avatar"></div>
+
+    <h2>Hello, <strong id="username">Friend</strong></h2>
+    <div class="subtitle">Use your PIN to login</div>
+
+    <!-- PIN -->
+    <div class="pin" id="pinDots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+
+    <!-- KEYPAD -->
+    <div class="keypad">
+      <div class="key" data-num="1">1</div>
+      <div class="key" data-num="2">2</div>
+      <div class="key" data-num="3">3</div>
+      <div class="key" data-num="4">4</div>
+      <div class="key" data-num="5">5</div>
+      <div class="key" data-num="6">6</div>
+      <div class="key" data-num="7">7</div>
+      <div class="key" data-num="8">8</div>
+      <div class="key" data-num="9">9</div>
+      <div class="key empty"></div>
+      <div class="key" data-num="0">0</div>
+      <div class="key" id="del">✕</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <span onclick="forgotPin()">Forgot PIN?</span>
+      <span onclick="logout()">⎋ Logout</span>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const MAX = 5;
+const CORRECT_PIN = "12345"; // 🔐 fake PIN for now
+let pin = "";
+
+const dots = document.querySelectorAll(".dot");
+const pinBox = document.getElementById("pinDots");
+
+document.getElementById("username").textContent =
+  localStorage.getItem("emurika_name") || "Herve KUBANA";
+
+document.querySelectorAll("[data-num]").forEach(btn=>{
+  btn.onclick = () => addPin(btn.dataset.num);
+});
+
+document.getElementById("del").onclick = deletePin;
+
+function addPin(num){
+  if(pin.length >= MAX) return;
+  pin += num;
+  updateDots();
+
+  if(pin.length === MAX){
+    setTimeout(checkPin, 200);
+  }
+}
+
+function deletePin(){
+  pin = pin.slice(0,-1);
+  updateDots();
+}
+
+function updateDots(){
+  dots.forEach((d,i)=>{
+    d.classList.toggle("active", i < pin.length);
+  });
+}
+
+function checkPin(){
+  if(pin === CORRECT_PIN){
+    const role = localStorage.getItem("emurika_role");
+
+    if(role === "seller"){
+      window.location.href = "seller_dashboard.html";
+    } else {
+      window.location.href = "home.html";
+    }
+  }
+}
+
+
+function forgotPin(){
+  window.location.href = "forgotpwd.html";
+}
+
+function logout(){
+  localStorage.clear();
+  window.location.href = "welcome.html";
+}
+</script>
+
+</body>
+</html>

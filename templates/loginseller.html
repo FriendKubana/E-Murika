@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>E-Murika</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',system-ui;
+}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#f3f4f6,#dcdfe4);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+}
+
+.wrapper{
+  width:100%;
+  max-width:340px;
+  position:relative;
+}
+
+/* LOGO */
+.logo-circle{
+  width:92px;
+  height:92px;
+  border-radius:50%;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto -46px;
+  z-index:5;
+  position:relative;
+  box-shadow:0 18px 40px rgba(0,0,0,0.7);
+}
+
+.logo-circle img{
+  width:180%;
+  height:190%;
+  object-fit:contain;
+}
+
+/* CARD */
+.card{
+  background:#fff;
+  border-radius:26px;
+  padding:64px 18px 26px;
+  box-shadow:0 30px 60px rgba(0,0,0,0.22);
+  position:relative;
+  z-index:1;
+}
+
+/* PHONE INPUT */
+.phone-row{
+  display:flex;
+  gap:8px;
+  margin-bottom:12px;
+}
+
+.country{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:10px 10px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  font-size:13px;
+  cursor:pointer;
+  background:#fff;
+}
+
+.country span{
+  font-size:16px;
+}
+
+.phone-row input{
+  flex:1;
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:10px 12px;
+  font-size:13px;
+  outline:none;
+}
+
+.phone-row input:focus{
+  border-color:#000;
+}
+
+/* PASSWORD */
+.password{
+  margin-bottom:6px;
+}
+
+.password input{
+  width:100%;
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:10px 12px;
+  font-size:13px;
+  outline:none;
+}
+
+/* FORGOT */
+.forgot{
+  text-align:right;
+  margin-bottom:16px;
+}
+
+.forgot a{
+  font-size:11px;
+  color:#555;
+  text-decoration:none;
+}
+
+.forgot a:hover{
+  text-decoration:underline;
+}
+
+/* BUTTONS */
+.btn-main{
+  width:100%;
+  padding:12px;
+  border-radius:14px;
+  background:#000;
+  color:#fff;
+  border:none;
+  font-size:13px;
+  font-weight:500;
+  cursor:pointer;
+}
+
+.btn-main:hover{
+  opacity:.9;
+}
+
+.btn-main:active{
+  transform:scale(.97);
+}
+
+.divider{
+  text-align:center;
+  font-size:11px;
+  color:#888;
+  margin:14px 0;
+}
+
+.btn-alt{
+  width:100%;
+  padding:11px;
+  border-radius:14px;
+  background:#e8e8e8;
+  border:none;
+  font-size:12px;
+  font-weight:500;
+  cursor:pointer;
+}
+
+.btn-alt:hover{
+  background:#dedede;
+}
+
+/* BOTTOM */
+.bottom{
+  margin-top:18px;
+  text-align:center;
+  font-size:12px;
+}
+
+.bottom a{
+  color:#000;
+  font-weight:600;
+  text-decoration:none;
+}
+
+.bottom a:hover{
+  text-decoration:underline;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <div class="logo-circle">
+    <img src="../static/murika_logo.png" alt="E-Murika">
+  </div>
+
+  <div class="card">
+
+    <div class="phone-row">
+      <div class="country">
+        <span>🇷🇼</span>
+        <small>+250</small>
+      </div>
+      <input type="tel" placeholder="7XX XXX XXX">
+    </div>
+
+    <div class="password">
+      <input type="password" placeholder="Password">
+    </div>
+
+    <div class="forgot">
+      <a href="forgotpassword.html">Forgot password?</a>
+    </div>
+
+    <button class="btn-main" onclick="login()">Continue</button>
+
+    <div class="divider">or</div>
+
+    <button class="btn-alt" onclick="otp()">Login with SMS code</button>
+
+    <div class="bottom">
+      New here? <a href="register.html">Create account</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function login(){
+  window.location.href="";
+}
+function otp(){
+  window.location.href="login-sms.html";
+}
+</script>
+
+</body>
+</html>

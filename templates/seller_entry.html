@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Seller Access | E-Murika</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', system-ui;
+    }
+
+    /* ===== SILVER / DARK PREMIUM BACKGROUND ===== */
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top,
+          #f6f7f9 0%,
+          #e3e5ea 35%,
+          #d0d3d9 60%,
+          #e9ebef 100%
+        );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      color: #111;
+    }
+
+    /* ===== CARD ===== */
+    .glass {
+      width: 100%;
+      max-width: 360px;
+      padding: 32px 22px 30px;
+      border-radius: 26px;
+      background: linear-gradient(
+        180deg,
+        #ffffff,
+        #f0f2f5
+      );
+      border: 1px solid rgba(0,0,0,0.08);
+      text-align: center;
+      box-shadow:
+        0 35px 70px rgba(0,0,0,0.18),
+        0 15px 30px rgba(0,0,0,0.12);
+    }
+
+    /* ===== LOGO ===== */
+    .logo-circle {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow:
+        0 22px 45px rgba(0,0,0,0.85);
+    }
+
+    .logo-circle img {
+      width: 180%;
+      height: 180%;
+      object-fit: contain;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    p {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 26px;
+    }
+
+    /* ===== BUTTONS (ACTIVE BY DEFAULT) ===== */
+    .actions {
+      display: flex;
+      gap: 14px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 14px 10px;
+      border-radius: 16px;
+      background: #111;            /* ACTIVE LOOK DEFAULT */
+      color: #fff;
+      border: 1.5px solid #111;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.2s ease;
+      box-shadow:
+        0 10px 25px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.15);
+    }
+
+    /* slight lift on hover only */
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* CLICK GLOW */
+    .btn:active {
+      animation: glow 0.35s ease;
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 0 rgba(255,255,255,0);
+      }
+      50% {
+        box-shadow:
+          0 0 18px rgba(255,255,255,0.8),
+          0 0 35px rgba(255,255,255,0.5);
+      }
+      100% {
+        box-shadow:
+          0 10px 25px rgba(0,0,0,0.35);
+      }
+    }
+
+    /* MOBILE */
+    @media (max-width: 360px) {
+      .logo-circle {
+        width: 96px;
+        height: 96px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="glass">
+    <div class="logo-circle">
+      <img src="../static/murika_logo.png" alt="E-Murika Logo">
+    </div>
+
+    <h1>Seller Access</h1>
+    <p>Login to your store or build a new one</p>
+
+    <div class="actions">
+      <button class="btn" onclick="goLogin()">Login</button>
+      <button class="btn" onclick="goSignup()">Build Store</button>
+    </div>
+  </div>
+
+  <script>
+    function goLogin() {
+      window.location.href = "loginseller.html";
+    }
+    function goSignup() {
+      window.location.href = "/register-seller";
+    }
+  </script>
+
+</body>
+</html>

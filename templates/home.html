@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>E-Murika | Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',system-ui;
+}
+
+body{
+  background:#000;
+  display:flex;
+  justify-content:center;
+  min-height:100vh;
+}
+
+/* PHONE */
+.phone{
+  width:100%;
+  max-width:390px;
+  background:#000;
+  display:flex;
+  flex-direction:column;
+}
+
+/* HEADER */
+.header{
+  padding:18px 18px 14px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.brand img{
+  width:34px;
+}
+
+.brand h1{
+  font-size:16px;
+  color:#fff;
+  font-weight:600;
+}
+
+.search{
+  margin-top:14px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.12);
+  backdrop-filter:blur(14px);
+  border-radius:16px;
+  padding:12px 14px;
+  color:#fff;
+  font-size:13px;
+}
+
+/* BANNER */
+.banner{
+  margin:14px 16px;
+  padding:18px;
+  border-radius:22px;
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.18),
+    rgba(255,255,255,.05)
+  );
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.16);
+  color:#fff;
+}
+
+.banner h2{
+  font-size:15px;
+  font-weight:600;
+}
+
+.banner p{
+  font-size:12px;
+  color:#d0d0d0;
+  margin-top:6px;
+}
+
+/* PRODUCTS */
+.products{
+  padding:8px 16px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.product{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.12);
+  backdrop-filter:blur(16px);
+  border-radius:18px;
+  padding:12px;
+  color:#fff;
+  cursor:pointer;
+  transition:.15s;
+}
+
+.product:active{
+  transform:scale(.96);
+}
+
+.thumb{
+  width:100%;
+  height:90px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.2);
+  margin-bottom:8px;
+}
+
+.product h4{
+  font-size:13px;
+  font-weight:500;
+}
+
+.product span{
+  font-size:12px;
+  color:#cfcfcf;
+}
+
+/* NAV */
+.nav{
+  margin-top:auto;
+  display:flex;
+  justify-content:space-around;
+  padding:14px 0;
+  border-top:1px solid rgba(255,255,255,0.1);
+}
+
+.nav div{
+  font-size:11px;
+  color:#aaa;
+}
+
+.nav .active{
+  color:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="brand">
+      <img src="../static/murika_logo.png" alt="E-Murika">
+      <h1>E-Murika</h1>
+    </div>
+    <input class="search" placeholder="Search products or stores">
+  </div>
+
+  <!-- BANNER -->
+  <div class="banner">
+    <h2>Buy from trusted local sellers 🇷🇼</h2>
+    <p>Discover verified stores and quality products</p>
+  </div>
+
+  <!-- PRODUCTS -->
+  <div class="products">
+
+    <div class="product">
+      <div class="thumb"></div>
+      <h4>Smart Watch</h4>
+      <span>15,000 RWF</span>
+    </div>
+
+    <div class="product">
+      <div class="thumb"></div>
+      <h4>Sneakers</h4>
+      <span>25,000 RWF</span>
+    </div>
+
+    <div class="product">
+      <div class="thumb"></div>
+      <h4>Headphones</h4>
+      <span>18,000 RWF</span>
+    </div>
+
+    <div class="product">
+      <div class="thumb"></div>
+      <h4>Backpack</h4>
+      <span>12,000 RWF</span>
+    </div>
+
+  </div>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="active">Home</div>
+    <div>Cart</div>
+    <div>Profile</div>
+  </div>
+
+</div>
+
+</body>
+</html>

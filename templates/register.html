@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pricing | E-Murika</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',system-ui;
+}
+
+body{
+  min-height:100vh;
+  background:#0a0a0a;
+  color:#f5f5f5;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:28px;
+}
+
+/* subtle luxury grain */
+body::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("https://www.transparenttextures.com/patterns/noise.png");
+  opacity:.08;
+  pointer-events:none;
+}
+
+.container{
+  width:100%;
+  max-width:960px;
+}
+
+/* HEADER */
+.header{
+  text-align:center;
+  margin-bottom:44px;
+}
+
+.header h1{
+  font-size:34px;
+  font-weight:700;
+  letter-spacing:-0.02em;
+}
+
+.header p{
+  margin-top:10px;
+  font-size:15px;
+  color:#b5b5b5;
+}
+
+/* LAYOUT */
+.pricing{
+  display:grid;
+  grid-template-columns:1fr 1.15fr;
+  gap:36px;
+  align-items:center;
+}
+
+/* BASE CARD */
+.card{
+  position:relative;
+  padding:38px 34px;
+  border-radius:26px;
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(18px);
+  box-shadow:0 35px 80px rgba(0,0,0,.85);
+}
+
+/* REGULAR */
+.card.regular{
+  opacity:.85;
+}
+
+/* PREMIUM */
+.card.premium{
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.12),
+      rgba(255,255,255,.05)
+    );
+  border:1px solid rgba(255,255,255,.22);
+  transform:scale(1.05);
+}
+
+/* SIDE NEON SHADOW */
+.card.premium::before{
+  content:"";
+  position:absolute;
+  top:10%;
+  bottom:10%;
+  left:-10px;
+  right:-10px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.35),
+      transparent 25%,
+      transparent 75%,
+      rgba(255,255,255,.35)
+    );
+  filter:blur(22px);
+  opacity:.9;
+  z-index:-1;
+}
+
+/* BADGE */
+.badge{
+  position:absolute;
+  top:-14px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#ffffff;
+  color:#000;
+  font-size:11px;
+  font-weight:700;
+  padding:6px 18px;
+  border-radius:999px;
+  letter-spacing:.12em;
+}
+
+/* TITLES */
+.card h2{
+  font-size:22px;
+  margin-bottom:14px;
+}
+
+.price{
+  margin-bottom:26px;
+}
+
+.amount{
+  font-size:40px;
+  font-weight:700;
+}
+
+.period{
+  font-size:13px;
+  color:#b5b5b5;
+}
+
+/* FEATURES */
+.features{
+  list-style:none;
+  margin-bottom:32px;
+}
+
+.features li{
+  font-size:14px;
+  margin-bottom:14px;
+  color:#e1e1e1;
+}
+
+.features .strong{
+  font-weight:600;
+  color:#ffffff;
+}
+
+/* BUTTON */
+.btn{
+  width:100%;
+  padding:17px;
+  border-radius:16px;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+.regular .btn{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.35);
+  color:#fff;
+}
+
+.premium .btn{
+  background:#ffffff;
+  color:#000;
+  border:none;
+}
+
+.btn:active{
+  transform:scale(.96);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .pricing{
+    grid-template-columns:1fr;
+  }
+
+  .card.premium{
+    transform:scale(1.02);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h1>Sell with legitimacy. Grow with confidence.</h1>
+    <p>Professional ecommerce for trusted businesses in Rwanda</p>
+  </div>
+
+  <div class="pricing">
+
+    <!-- REGULAR -->
+    <div class="card regular">
+      <h2>Regular</h2>
+
+      <div class="price">
+        <div class="amount">5,000 RWF</div>
+        <div class="period">per month · 7 days free trial</div>
+      </div>
+
+      <ul class="features">
+        <li>✔️ 1 store</li>
+        <li>✔️ Up to 50 products</li>
+        <li>✔️ WhatsApp & phone orders</li>
+        <li>✔️ Public store link</li>
+        <li>✔️ Basic trust level</li>
+      </ul>
+
+      <button class="btn">Try free for 7 days</button>
+    </div>
+
+    <!-- PREMIUM -->
+    <div class="card premium">
+      <div class="badge">FIRST CLASS</div>
+
+      <h2>Premium</h2>
+
+      <div class="price">
+        <div class="amount">50,000 RWF</div>
+        <div class="period">per month</div>
+      </div>
+
+      <ul class="features">
+        <li>⭐ <span class="strong">Kwemeza ubunyamwuga & integrity</span></li>
+        <li>⭐ <span class="strong">Verified & trusted seller badge</span></li>
+        <li>⭐ <span class="strong">Unlimited products & categories</span></li>
+        <li>⭐ Priority visibility across E-Murika</li>
+        <li>⭐ Builds strong <span class="strong">customer confidence</span></li>
+        <li>⭐ Dedicated priority support</li>
+      </ul>
+
+      <button class="btn">Upgrade to First Class</button>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

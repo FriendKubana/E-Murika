@@ -1,0 +1,8 @@
+- [x] Increase cover height to 160px
+- [x] Increase store-logo to 80px, padding to 6px
+- [x] Increase store-name font-size to 16px, verified to 12px, location to 13px
+- [x] Increase categories padding to 18px, cat padding to 10px 16px, font-size to 13px
+- [x] Increase products padding to 18px, gap to 16px
+- [x] Increase product img height to 140px
+- [x] Increase product-info padding to 12px, product-name to 14px, price to 13px
+- [x] Add subtle animations or hover effects for categories and products

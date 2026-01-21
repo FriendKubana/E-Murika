@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Forgot Password | E-Murika</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',system-ui;
+}
+
+/* ===== PAGE ===== */
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#f2f3f5,#dadde2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+}
+
+/* ===== WRAPPER ===== */
+.wrapper{
+  width:100%;
+  max-width:320px; /* PERFECT FOR IPHONE XR */
+  position:relative;
+}
+
+/* ===== LOGO ===== */
+.logo-circle{
+  width:88px;
+  height:88px;
+  border-radius:50%;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto -40px;
+  z-index:10;
+  position:relative;
+  box-shadow:0 18px 40px rgba(0,0,0,0.7);
+  overflow:hidden;
+}
+
+.logo-circle img{
+  width:180%;
+  height:180%;
+  object-fit:contain;
+  display:block;
+}
+
+/* ===== CARD ===== */
+.card{
+  background:#fff;
+  border-radius:26px;
+  padding:56px 16px 24px;
+  box-shadow:0 30px 60px rgba(0,0,0,0.22);
+  text-align:center;
+}
+
+/* ===== TEXT ===== */
+h1{
+  font-size:15px;
+  font-weight:600;
+  margin-bottom:6px;
+  color:#111;
+}
+
+p{
+  font-size:12px;
+  color:#555;
+  margin-bottom:18px;
+}
+
+/* ===== PHONE INPUT ===== */
+.phone-row{
+  display:flex;
+  gap:8px;
+  margin-bottom:18px;
+}
+
+.country{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:10px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  background:#fff;
+}
+
+.country img{
+  width:20px;
+  height:14px;
+  object-fit:cover;
+  border-radius:2px;
+}
+
+.country span{
+  font-size:12px;
+  font-weight:500;
+}
+
+.phone-row input{
+  flex:1;
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:10px 12px;
+  font-size:12px;
+  outline:none;
+}
+
+.phone-row input:focus{
+  border-color:#000;
+}
+
+/* ===== BUTTON ===== */
+.btn-main{
+  width:100%;
+  padding:12px;
+  border-radius:14px;
+  background:#000;
+  color:#fff;
+  border:none;
+  font-size:12.5px;
+  font-weight:500;
+  cursor:pointer;
+}
+
+.btn-main:active{
+  transform:scale(0.97);
+}
+
+/* ===== BACK LINK ===== */
+.back{
+  margin-top:14px;
+  font-size:12px;
+}
+
+.back a{
+  text-decoration:none;
+  color:#000;
+  font-weight:500;
+}
+
+/* ===== LARGE PHONES (XR, 11, 12, 13) ===== */
+@media (min-width:390px){
+  .wrapper{
+    max-width:300px;
+  }
+
+  .logo-circle{
+    width:84px;
+    height:84px;
+  }
+
+  .card{
+    padding:54px 16px 22px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <!-- LOGO -->
+  <div class="logo-circle">
+    <img src="../static/murika_logo.png" alt="E-Murika Logo">
+  </div>
+
+  <!-- CARD -->
+  <div class="card">
+
+    <h1>Reset your password</h1>
+    <p>Enter your phone number to receive a reset code</p>
+
+    <div class="phone-row">
+      <div class="country">
+        <img src="https://flagcdn.com/w20/rw.png" alt="RW">
+        <span>+250</span>
+      </div>
+      <input type="tel" placeholder="7XX XXX XXX">
+    </div>
+
+    <button class="btn-main" onclick="sendCode()">
+      Send reset code
+    </button>
+
+    <div class="back">
+      <a href="loginseller.html">← Back to login</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function sendCode(){
+  // frontend-only
+  window.location.href = "resetcode.html";
+}
+</script>
+
+</body>
+</html>

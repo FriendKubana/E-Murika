@@ -1,237 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Welcome | E-Murika</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>E-Murika</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Poppins -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      min-height: 100vh;
-      font-family: 'Poppins', system-ui;
-      background:
-        linear-gradient(
-          135deg,
-          rgba(10, 18, 28, 0.94),
-          rgba(70, 22, 42, 0.9)
-        ),
-        url("https://images.unsplash.com/photo-1441986300917-64674bd600d8");
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 16px;
-      color: #fff;
-    }
-
-    /* MAIN CONTAINER – PHONE PERFECT */
-    .glass {
-      width: 100%;
-      max-width: 360px;   /* iPhone & Android sweet spot */
-      padding: 28px 22px 26px;
-      border-radius: 24px;
-      background: rgba(255, 255, 255, 0.18);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.32);
-      box-shadow:
-        0 28px 55px rgba(0, 0, 0, 0.6),
-        inset 0 1px 1px rgba(255, 255, 255, 0.2);
-      text-align: center;
-    }
-
-    /* LOGO CIRCLE – CENTERED & STRONG */
-    .logo-badge {
-      width: 92px;
-      height: 92px;
-      margin: 0 auto 18px;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.75); /* almost opaque */
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow:
-        0 18px 35px rgba(0, 0, 0, 0.75),
-        inset 0 1px 1px rgba(255, 255, 255, 0.12);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .logo-badge img {
-      width: 150px;
-      height: 150px;
-      
-      object-fit: cover;
-    }
-
-   h1 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 6px;
-  line-height: 1.3;
-
-  white-space: nowrap;      /* 🔥 prevents E- break */
-  word-break: keep-all;     /* keeps words together */
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',system-ui;
 }
 
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at top,#1a1f2b,#000 70%);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:16px;
+  overflow:hidden;
+  color:#fff;
+}
 
-    p {
-      font-size: 13px;
-      opacity: 0.88;
-      margin-bottom: 22px;
-    }
+/* ambient tech glow */
+body::after{
+  content:"";
+  position:absolute;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,rgba(0,180,255,.12),transparent 60%);
+  filter:blur(80px);
+  top:-200px;
+  right:-200px;
+}
 
-    .options {
-      display: grid;
-      gap: 14px;
-    }
+/* GLASS CARD */
+.card{
+  width:100%;
+  max-width:360px;
+  padding:32px 24px;
+  border-radius:36px;
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.10),
+    rgba(255,255,255,.03)
+  );
+  backdrop-filter:blur(30px);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:
+    0 60px 120px rgba(0,0,0,.85),
+    inset 0 0 0 1px rgba(255,255,255,.08);
+  text-align:center;
+  position:relative;
+  z-index:10;
+}
 
-    .option {
-      padding: 16px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.22);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      cursor: pointer;
-      transition: all 0.25s ease;
-      text-align: left;
-      box-shadow:
-        inset 0 1px 1px rgba(255, 255, 255, 0.25),
-        0 8px 20px rgba(0, 0, 0, 0.35);
-    }
+/* LOGO */
+.logo{
+  width:92px;
+  height:92px;
+  margin:0 auto 20px;
+  border-radius:50%;
+  background:rgba(0,0,0,.55);
+  border:1px solid rgba(255,255,255,.2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:
+    0 0 30px rgba(0,180,255,.25),
+    inset 0 0 15px rgba(255,255,255,.1);
+}
 
-    .option:hover {
-      transform: translateY(-2px);
-      background: rgba(255, 255, 255, 0.3);
-    }
+.logo img{
+  width:180%;
+  height:190%;
+  object-fit:contain;
+}
 
-    .option.buy {
-      border-left: 4px solid #4ade80;
-    }
+h1{
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:6px;
+}
 
-    .option.sell {
-      border-left: 4px solid #f97316;
-    }
+p{
+  font-size:13px;
+  opacity:.7;
+  margin-bottom:30px;
+}
 
-    .option h2 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
+/* OPTIONS */
+.options{
+  display:flex;
+  gap:18px;
+}
 
-    .option span {
-      font-size: 12.5px;
-      opacity: 0.85;
-    }
-  </style>
+/* ACTION BUTTON (GLASS + TECH) */
+.action{
+  flex:1;
+  padding:20px 10px 18px;
+  border-radius:30px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.14),
+      rgba(255,255,255,.04)
+    );
+  border:1px solid rgba(255,255,255,.18);
+  backdrop-filter:blur(22px);
+  position:relative;
+  cursor:pointer;
+  overflow:hidden;
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+/* hover glow */
+.action::before{
+  content:"";
+  position:absolute;
+  inset:-50%;
+  background:radial-gradient(circle,rgba(0,200,255,.25),transparent 55%);
+  opacity:0;
+  transition:.4s ease;
+}
+
+/* CLICK LIGHT PULSE */
+.action::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at center,rgba(255,255,255,.8),transparent 60%);
+  opacity:0;
+  transform:scale(.3);
+}
+
+/* hover */
+.action:hover{
+  transform:translateY(-6px) scale(1.05);
+  box-shadow:0 30px 60px rgba(0,0,0,.9);
+}
+.action:hover::before{opacity:1}
+
+/* active click */
+.action.clicked::after{
+  animation:clickGlow .6s ease-out forwards;
+}
+
+@keyframes clickGlow{
+  0%{opacity:.9;transform:scale(.3)}
+  100%{opacity:0;transform:scale(1.6)}
+}
+
+/* ICON */
+.icon{
+  width:66px;
+  height:66px;
+  margin:0 auto 12px;
+  border-radius:50%;
+  background:linear-gradient(145deg,#fff,#dfefff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:
+    0 0 20px rgba(0,180,255,.35),
+    inset 0 0 6px rgba(255,255,255,.8);
+}
+
+.icon img{
+  width:100%;
+  height:70%;
+  filter:contrast(1.2);
+}
+
+.action h2{
+  font-size:14px;
+  font-weight:600;
+}
+
+.action span{
+  font-size:12px;
+  opacity:.65;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="glass">
+<div class="card">
 
-    <!-- CENTER LOGO -->
-    <div class="logo-badge">
-      <img src="../static/murika_logo.png" alt="E-Murika Logo">
+  <div class="logo">
+    <img src="../static/murika_logo.png" alt="E-Murika">
+  </div>
+
+  <h1 id="welcome">Welcome to E-Murika</h1>
+  <p id="subtitle">Choose how you want to continue</p>
+
+  <div class="options">
+
+    <div class="action" onclick="chooseRole(this,'buyer')">
+      <div class="icon">
+        <img src="../static/buy.png.png" alt="Buy">
+      </div>
+      <h2 id="buyTitle">Buy</h2>
+      <span id="buyDesc">Shop products</span>
     </div>
 
-    <h1>Welcome to <br>E-Murika</h1>
-    <p>Choose how you want to continue</p>
-
-    <div class="options">
-      <div class="option buy" onclick="chooseRole('buyer')">
-        <h2>Buy Products</h2>
-        <span>Explore clothes, shoes, and local stores</span>
+    <div class="action" onclick="chooseRole(this,'seller')">
+      <div class="icon">
+        <img src="../static/sell.png.png" alt="Sell">
       </div>
-
-      <div class="option sell" onclick="chooseRole('seller')">
-        <h2>Sell Products</h2>
-        <span>Create your store and reach more buyers</span>
-      </div>
+      <h2 id="sellTitle">Sell</h2>
+      <span id="sellDesc">Open store</span>
     </div>
 
   </div>
+</div>
 
-  <script>
-    
- 
-  
-  const lang = localStorage.getItem("emurika_language") || "en";
+<script>
+const lang = localStorage.getItem("emurika_language") || "en";
 
-  
-   const translations = {
-  en: {
-    welcome: "Welcome to E-Murika",
-    subtitle: "Choose how you want to continue",
-    buyTitle: "Buy Products",
-    buyDesc: "Explore clothes, shoes, and local stores",
-    sellTitle: "Sell Products",
-    sellDesc: "Create your store and reach more buyers"
-  },
+const t={
+  en:{welcome:"Welcome to E-Murika",subtitle:"Choose how you want to continue",buyTitle:"Buy",buyDesc:"Shop products",sellTitle:"Sell",sellDesc:"Open store"},
+  rw:{welcome:"Murakaza neza kuri E-Murika",subtitle:"Hitamo uko wifuza gukomeza",buyTitle:"Gura",buyDesc:"Gura ibicuruzwa",sellTitle:"Gurisha",sellDesc:"Fungura iduka"},
+  fr:{welcome:"Bienvenue sur E-Murika",subtitle:"Choisissez comment continuer",buyTitle:"Acheter",buyDesc:"Voir produits",sellTitle:"Vendre",sellDesc:"Créer boutique"}
+}[lang];
 
-  rw: {
-    welcome: "Murakaza neza kuri E-Murika",
-    subtitle: "Hitamo uko wifuza gukomeza",
-    buyTitle: "Gura Ibicuruzwa",
-    buyDesc: "Reba imyenda, inkweto n'amaduka yo hafi",
-    sellTitle: "Gurisha Ibicuruzwa",
-    sellDesc: "Fungura iduka ryawe ugere ku baguzi benshi"
-  },
+welcome.textContent=t.welcome;
+subtitle.textContent=t.subtitle;
+buyTitle.textContent=t.buyTitle;
+buyDesc.textContent=t.buyDesc;
+sellTitle.textContent=t.sellTitle;
+sellDesc.textContent=t.sellDesc;
 
-  fr: {
-    welcome: "Bienvenue sur E-Murika",
-    subtitle: "Choisissez comment continuer",
-    buyTitle: "Acheter des produits",
-    buyDesc: "Découvrez vêtements, chaussures et boutiques locales",
-    sellTitle: "Vendre des produits",
-    sellDesc: "Créez votre boutique et atteignez plus de clients"
-  }
-};
+function chooseRole(el,role){
+  el.classList.add("clicked");
 
-
-  const t = translations[lang];
-
-  document.querySelector("h1").textContent = t.welcome;
-  document.querySelector("p").textContent = t.subtitle;
-
-  document.querySelector(".option.buy h2").textContent = t.buyTitle;
-  document.querySelector(".option.buy span").textContent = t.buyDesc;
-
-  document.querySelector(".option.sell h2").textContent = t.sellTitle;
-  document.querySelector(".option.sell span").textContent = t.sellDesc;
-
-  function chooseRole(role) {
-    localStorage.setItem("emurika_role", role);
-    setTimeout(() => {
-      window.location.href = role === "seller"
-        ? "/register-seller"
-        : "/login";
-    }, 300);
-  }
-
-
-
-
-    function chooseRole(role) {
-      localStorage.setItem("emurika_role", role);
-      setTimeout(() => {
-        window.location.href = role === "seller"
-          ? "/register-seller"
-          : "/login";
-      }, 300);
-    }
-  </script>
+  setTimeout(()=>{
+    localStorage.setItem("emurika_role",role);
+    window.location.href = role==="seller"
+      ? "register.html"
+      : "loginseller.html";
+  },300);
+}
+</script>
 
 </body>
 </html>
